@@ -34,13 +34,14 @@ int main()
     printf("Enter the period (T) in seconds:");
     scanf("%lf\n", &time);
     //Calculate  Height = [(G M T^ 2)/4PI^ 20]^1/3-R
-    height = (GRAVITY * E_MASS * pow(time,2));
-    height = (height / 4*pow(PI,2));
-    height = (pow(height, 1/3));
-    height = height - E_RADIUS;
-    // Display result
-    printf("Satellite after %lf sec is %lf meters from earth\n",
-        time, height);
+//    height = (GRAVITY * E_MASS * pow(time,2));
+//    height = (height / 4*pow(PI,2));
+//    height = cbrt(height);
+//    height = height - E_RADIUS;
+   height = cbrt((GRAVITY * E_MASS * pow(time,2))/(4*pow(PI,2)))-E_RADIUS;
+    // Display result: ex: 86400 seconds -> 35855 km
+    printf("Satellite after %lf sec is %lf km from earth\n",
+        time, height/1000);
 
     return 0;
 }
