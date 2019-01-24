@@ -16,12 +16,12 @@
  * =====================================================================================
  */
 #include <stdio.h>
-#include <strings.h>    //For string manipulation operations
+#include <string.h>    //For string manipulation operations
 
 
 // Main Function
 int main()
-{
+{   // to autoindent, while in the curly =%
     char first[50];
     char last[50];
     char fullName[100];
