@@ -25,13 +25,20 @@ const double PI = 3.14159;
 // Main Function
 int main()
 {
+    double radius, theta, x_pos, y_pos;
     // 1) Capture user input for radius and theta angle (degrees)
-    
+    printf("Enter your radius: ");
+    scanf("%lf", &radius);
+    printf("Enter your theta angle in degrees: ");
+    scanf("%lf", &theta);
     // 2) Convert the theta angle to radians
-    
+    theta = (theta * PI / 100.0);
     // 3) Calculate your cartesian coordinates
-    
+    x_pos = radius * cos(theta);
+    y_pos = radius * sin(theta);
     // 4) Print your result
+    printf("Your Cartesian Coordinates, x = [%lf], y = [%lf]\n",
+            x_pos, y_pos);
     return 0;
 }
 // Function Definitions
