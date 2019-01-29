@@ -1,5 +1,8 @@
 #include <stdio.h>
-
+//const int CELSIUS = 0;
+//const int FAHRENHEIT = 1;
+#define CELSIUS 0
+#define FAHRENHEIT 1
 
 int main()
 {
@@ -38,7 +41,7 @@ int main()
     }
 
 /*
-    printf("The temperature is %f Celsius\n", temp);
+    printf("The temperature is t int Cf Celsius\n", temp);
 	printf("what is the temperature in Ogden now in Celsius: \n");
 	// use %f to capture float information
 	// use %lf to capture double information
