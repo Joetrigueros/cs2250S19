@@ -18,6 +18,18 @@
 #include <stdio.h>
 
 // Constants
+#define JANUARY  1
+#define FEBRUARY  2
+#define MARCH  3
+#define APRIL  4
+#define MAY  5
+#define JUNE  6
+#define JULY  7
+#define AUGUST  8
+#define SEPTEMBER  9
+#define OCTOBER  10
+#define NOVEMBER  11
+#define DECEMBER  12
 
 // Function Prototypes
 
@@ -29,7 +41,7 @@ int main()
     printf("Please enter the month: 1 for January, 2 for Feb, etc.\n");
     scanf("%d", &month);
     printf("You have entered a valid month");
-    printf("please enter the date: ");
+    printf(" please enter the date: ");
     scanf("%d", &day);
     // 2) Use IF to validate month
     if(month > 12 || month < 1)
@@ -41,13 +53,13 @@ int main()
     switch(month)
     {
         //Months with 31 days
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
+        case JANUARY:
+        case MARCH:
+        case MAY:
+        case JULY:
+        case AUGUST:
+        case OCTOBER:
+        case DECEMBER:
             if(day > 31 || day < 1)
             {
                 printf("Invalid day\n");
@@ -55,10 +67,10 @@ int main()
             }
             break;
         // Months with 30 days
-        case 4:
-        case 6:
-        case 9:
-        case 11:
+        case APRIL:
+        case JUNE:
+        case SEPTEMBER:
+        case NOVEMBER:
             if(day > 30 || day < 1)
             {
                 printf("Invalid day\n");
@@ -66,7 +78,7 @@ int main()
             }
             break;
         // February
-        case 2:
+        case FEBRUARY:
             if(day > 28 || day < 1)
             {
                 printf("Invalid day\n");
