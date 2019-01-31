@@ -12,7 +12,7 @@
  *        Version:  1.0
  *        Created:  01/31/2019 08:35:05 AM
  *       Revision:  none
- *       Compiler:  gcc angle.c -0 angle.out
+ *       Compiler:  gcc angle.c -0 angle.out -lm
  *
  *         Author:  Joe Trigueros (), Joetrigueros@mail.weber.edu
  *   Organization:  WSU
@@ -20,6 +20,8 @@
  * =====================================================================================
  */
 #include <stdio.h>
+#include <stdlib.h>     //for regular abs()
+#include <math.h>       // for fabs()
 
 // Constants
 
@@ -29,8 +31,16 @@
 int main()
 {
    int angle;
-    printf("Please enter an angle: ");
+   printf("Please enter an angle: ");
    scanf("%d", &angle);
+
+   // Check for angles > 360
+   angle = angle % 360;
+   if(angle < 0)  // Check fo rnegative angle
+   {
+       angle = abs(360 + angle);
+   }
+   
    if (angle>0 && angle < 90)
    {
        printf("\nThe angle is in quadrant I\n");
@@ -48,7 +58,7 @@ int main()
        printf("\nThe angle is in quadrant IV\n");
    }
 
-       return 0;
+   return 0;
 }
 // Function Definitions
 
