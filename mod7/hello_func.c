@@ -3,7 +3,7 @@
  *
  *       Filename:  hello_func.c
  *
- *    Description:  
+ *    Description:  Practice functions
  *
  *        Version:  1.0
  *        Created:  02/19/2019 08:58:00 AM
