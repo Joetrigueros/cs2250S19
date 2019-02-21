@@ -23,25 +23,23 @@ const double GRAVITY = 6.67e-11; //Newton's constant (m^ 3 kg^ -1 s^ -2)
 const double E_MASS = 5.97e24; // Earth's Mass (kg)
 const double E_RADIUS = 6371e3; // Earth's Radius (meters)
 const double PI = 3.1415941; // PI
-// Function Prototypes
-
 // Main Function
 int main()
 {
-    double height = 0;
-    double time = 0;
+    double period = 0;
+    long double height= 0;
     // 1) Enter the period (time) in seconds
     printf("Enter the period (T) in seconds:");
-    scanf("%lf\n", &time);
+    scanf("%lf\n", &period);
     //Calculate  Height = [(G M T^ 2)/4PI^ 20]^1/3-R
 //    height = (GRAVITY * E_MASS * pow(time,2));
 //    height = (height / 4*pow(PI,2));
 //    height = cbrt(height);
 //    height = height - E_RADIUS;
-   height = cbrt((GRAVITY * E_MASS * pow(time,2))/(4*pow(PI,2)))-E_RADIUS;
+   height = cbrt((GRAVITY * E_MASS * pow(period,2))/(4*pow(PI,2)))-E_RADIUS;
     // Display result: ex: 86400 seconds -> 35855 km
-    printf("Satellite after %lf sec is %lf km from earth\n",
-        time, height/1000);
+    printf("Your satellite after %lf sec is %Lf km from earth\n",
+        period, height/1000);
 
     return 0;
 }
