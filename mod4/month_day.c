@@ -3,7 +3,7 @@
  *
  *       Filename:  month_day.c
  *
- *    Description:  
+ *    Description:  Take month and day from user, then verify entries are valid
  *
  *        Version:  1.0
  *        Created:  01/31/2019 09:17:55 AM
