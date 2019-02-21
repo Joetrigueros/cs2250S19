@@ -44,7 +44,7 @@ int main()
         {
             printf("Go higher\n");
         }
-        else if(number == guess)
+        else
         {
             printf("Congratulations, you got the corret number\n");
             return 0;
