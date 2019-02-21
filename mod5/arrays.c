@@ -3,7 +3,7 @@
  *
  *       Filename:  arrays.c
  *
- *    Description:  
+ *    Description:  first look at arrays
  *
  *        Version:  1.0
  *        Created:  02/07/2019 10:06:40 AM
@@ -19,8 +19,6 @@
 
 // Constants
 #define NUM 3
-// Function Prototypes
-
 // Main Function
 int main()
 {
