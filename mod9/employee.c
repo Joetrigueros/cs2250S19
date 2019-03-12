@@ -23,11 +23,6 @@
 int main(int argc, char* argv[])
 {
 
-    Employee waldo;
-
-    CreateEmployee(&waldo);
-    CalcPay(&waldo);
-    DisplayEmp(&waldo);
     return 0;
 }
 // Function Definitions
