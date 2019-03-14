@@ -3,7 +3,7 @@
  *
  *       Filename:  use_employee.c
  *
- *    Description:  
+ *    Description:  Use the Employee Library
  *
  *        Version:  1.0
  *        Created:  03/12/2019 10:15:09 AM
@@ -19,10 +19,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "employee.h"
-// Constants
 
-// Function Prototypes
-
+#define TOTAL 5
 // Main Function
 int main(int argc, char* argv[])
 {
