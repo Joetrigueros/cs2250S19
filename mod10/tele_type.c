@@ -29,7 +29,7 @@ struct TeleType
 };
 typedef struct TeleType Tele;     // "should" be the last member
 // Function Prototypes
-
+void DisplayTele(Tele* content);
 // Main Function
 int main(int argc, char* argv[])
 {
@@ -42,10 +42,18 @@ int main(int argc, char* argv[])
     t1.nextaddr = &t2;   //set the address of the next structure
     t2.nextaddr = &t3;   //set the address fo the next structure
     t3.nextaddr = NULL;  //set the address of NULL, last member
-    printf("%s\n %s\n %s\n", first->name, t1.nextaddr->name, t2.nextaddr->name);
+    //Diplay linked list info
+    DisplayTele(first);
 
     return 0;
 }
 // Function Definitions
-
-
+void DisplayTele(Tele* content)
+{
+    while(content != NULL)
+    {
+        printf("%-30s %-20s\n", content->name, content->phoneNum);
+        content = content->nextaddr;
+    }
+    return;
+}
