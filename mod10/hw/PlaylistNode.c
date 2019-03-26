@@ -51,7 +51,7 @@ void CreatePlaylistNode(PlaylistNode* thisNode, char idInit[],
  */
 void InsertPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode)
 {
-    PlaylistNode* tempNext = NULL;
+//    PlaylistNode* tempNext = NULL;
     // 1) set temp to thisNode->nextPointer
     // 2) update thisNode->nextPointer to newNode
     // 3) set newNode->nextPointer to tempNext 
@@ -78,7 +78,7 @@ void SetNextPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode)
  */
 PlaylistNode* GetNextPlaylistNode(PlaylistNode* thisNode)
 {
-    // 1) REturn the next member in the list
+    // 1) Return the next member in the list
     return thisNode->nextNodePtr;
 }
 
