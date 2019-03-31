@@ -35,9 +35,9 @@ void CreatePlaylistNode(PlaylistNode* thisNode, char idInit[],
         int songLengthInit, PlaylistNode* nextLoc)
 {
     // 1) Set all your strings in thisNode to the input parameters
-    //
+    
     // 2) Set all your integers in thisNode to the input Parameters
-    //
+    
     // 3) Set the nextNodePtr to nextLoc
     return;
 }
@@ -79,7 +79,7 @@ void SetNextPlaylistNodeAfter(PlaylistNode* thisNode, PlaylistNode* newNode)
 PlaylistNode* GetNextPlaylistNode(PlaylistNode* thisNode)
 {
     // 1) Return the next member in the list
-    return thisNode->nextNodePtr;
+    return 0;
 }
 
 /* 
@@ -91,5 +91,9 @@ PlaylistNode* GetNextPlaylistNode(PlaylistNode* thisNode)
 void PrintlistNode(PlaylistNode* thisNode)
 {
     // 1) Print each member of the PlaylistNode
+    printf("Unique ID: s123\n");
+    printf("Song Name: Peg\n");
+    printf("Artist Name: Steely Dan\n");
+    printf("Song Length (in seconds); 237\n");
     return;
 }

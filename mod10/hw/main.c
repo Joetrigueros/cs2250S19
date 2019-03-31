@@ -18,6 +18,8 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "PlaylistNode.h"
 
 // Constants
@@ -31,11 +33,12 @@ int main(int argc, char* argv[])
     char playlistTitle[50];
     // 1) Prompt user for playlist title. Use fgets, and do not forget to
     // eliminate the end-of-line char
-    printf("Enter playlistTitle:\n");
+    printf("Enter playlist's title:\n");
     fgets(playlistTitle, 50, stdin);
     playlistTitle[strlen(playlistTitle) - 1] = '\0';
     // 2) Output playlist menu options
     PrintMenu(playlistTitle);
+
 
     return 0;
 }
@@ -51,18 +54,34 @@ void PrintMenu(char playlistTitle[])
     {
         printf("%s PLAYLIST MENU\n", playlistTitle);  // TODO: Remove before upload to zybooks
         // Check for valid choices
-        
+
+        printf("Choose an option: \n");
+        scanf("%c \n", &menuOp);
         // Set corresponding menu action:
-        //switch menuOp
-        //
-        // case 'a': add a song
-        // case 'r': Output playlist message
-        // case 'c': Prompt user for new song location
-        // case 's': Output songs by specific artist
-        // case 't': Output the total time of songs in sec
-        // case 'o': Output full play list
-        // case 'q': to quit, which is the exit of your loop
-        menuOp = 'q'; // TODO:Remoe, this is only for testing
+        switch (menuOp)
+        {
+            case 'a':
+                printf("add song");
+                break;
+            case 'r':
+                printf("Remove song");
+                break;
+            case 'c':
+                printf("Change position of song");
+                break;
+            case 's':
+                printf("Output songs by specific artist");
+                break;
+            case 't':
+                printf("Output total time of playlist (in seconds)");
+            case 'o':
+                printf("Output full playlist");
+                break;
+            case 'q':
+                printf("Quit");
+                break;
+                menuOp = 'q'; // TODO:Remoe, this is only for testing
+        }
     }// end of loop
     return;
 }
