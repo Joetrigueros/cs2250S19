@@ -54,9 +54,16 @@ void PrintMenu(char playlistTitle[])
     {
         printf("%s PLAYLIST MENU\n", playlistTitle);  // TODO: Remove before upload to zybooks
         // Check for valid choices
+        printf("a - Add song\n");
+        printf("r - Remove song\n");
+        printf("c - Change position of song\n");
+        printf("s - Output songs by specific artist\n");
+        printf("t - Output total time of playlist (in seconds)\n");
+        printf("o - Output full playlist\n");
+        printf("q - Quit\n");
 
-        printf("Choose an option: \n");
-        scanf("%c \n", &menuOp);
+        printf("Choose an option:\n");
+        scanf(" %c\n", &menuOp);
         // Set corresponding menu action:
         switch (menuOp)
         {
