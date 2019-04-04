@@ -23,9 +23,11 @@ struct Movie
 {
     string title = "";      // data member
     int year = 0;           // data member
+    bool equals(const Movie& to_compare);
 };
 // Function Prototypes
 bool Equals(const Movie& my_movie, const Movie& to_compare);  // the address operator is at the end of the name
+
 // Main Function
 int main(int argc, char* argv[])
 {
@@ -46,14 +48,25 @@ int main(int argc, char* argv[])
         << "Year    " << movie2.year << endl;
 
     // Test for equal values
+    // The equivalant of typing: movie == movie2
     if(Equals(movie, movie2))
     {
-        cout << "Movies are equal" << endl;
+        cout << "PF: Movies are equal" << endl;
     }
     else
     {
-        cout << "Movies are not equal" << endl;
+        cout << "PF: Movies are not equal" << endl;
     }
+    // Now use the member function instead of the program function
+    if(movie.equals(movie2))
+    {
+        cout << "MF: Movies are equal" << endl;
+    }
+    else
+    {
+        cout << "MF: Movies are not equal" << endl;
+    }
+
     return 0;
 }
 // Function Definitions
@@ -63,3 +76,9 @@ bool Equals(const Movie& my_movie, const Movie& to_compare)
             my_movie.year == to_compare.year);
 }
 
+//Member function definition
+bool  Movie::equals(const Movie& to_compare)
+{
+    return(title == to_compare.title &&
+            year == to_compare.year);
+}
