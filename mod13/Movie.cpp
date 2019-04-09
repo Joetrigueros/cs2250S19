@@ -34,7 +34,7 @@ Movie::Movie(string title, int year, int stars)
 // Destructor
 Movie::~Movie()
 {
-    cout << "Destroying Object" << endl;
+//    cout << "Destroying Object" << endl;
 }
 
 // Print info
