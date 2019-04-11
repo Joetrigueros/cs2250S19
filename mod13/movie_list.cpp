@@ -32,6 +32,10 @@ const string movie_file = "movies.txt";
 void display_menu();
 vector<Movie> read_movies_from_file();
 void view_movies(const vector<Movie>& movies);
+void add_movie(vector<Movie>& movies); 
+void delete_movie(vector<Movie>& movies); 
+Movie get_movie(); 
+int get_movie_number(const vector<Movie>& movies); 
 // Main Function
 int main(int argc, char* argv[])
 {
@@ -49,10 +53,10 @@ int main(int argc, char* argv[])
                 view_movies(movies);
                 break;
             case 'a':
-                // add_movie(movies);
+                add_movie(movies);
                 break;
             case 'd':
-                // delete_Movie(movies);
+                delete_movie(movies);
                 break;
             case 'x':
                 cout << "Bye!" << endl << endl;
@@ -126,3 +130,75 @@ void display_menu()
         << "x - Exit" << endl << endl;
 }
 
+Movie get_movie() 
+{
+    string title;
+    cout << "Title: ";
+	cin.ignore(1000, '\n');
+    getline(cin, title);
+
+    int year;
+    cout << "Year: ";
+    cin >> year;
+
+    int stars;
+    cout << "Stars (1-5): ";
+    cin >> stars;
+
+    Movie movie(title, year, stars);
+    return movie;
+}
+void add_movie(vector<Movie>& movies) 
+{
+    Movie movie = get_movie();
+    // check if movie already exists
+    bool already_exists = false;
+    for (Movie& m : movies) 
+    {
+        // Check if movie record already exists
+        if (m.iequals(movie)) 
+        {
+            already_exists = true;
+            // Updating the star number
+            m.set_stars(movie.get_stars());
+            break;
+        }
+    }
+
+    if (already_exists) 
+    {
+//        write_movies_to_file(movies);
+        cout << movie.get_title() << " was updated.\n\n";
+    }
+    else 
+    {
+        movies.push_back(movie); // Add it to list
+        cout << movie.get_title() << " was added.\n\n";
+    }
+}
+void delete_movie(vector<Movie>& movies) 
+{
+    int number = get_movie_number(movies); // get movie number
+
+    int index = number - 1; // Index notation
+    Movie movie = movies[index]; //Get a copy of that number
+    movies.erase(movies.begin() + index); //deleting record from vector
+    //  write_movies_to_file(movies);
+    cout << movie.get_title() << " was deleted.\n\n";
+}
+int get_movie_number(const vector<Movie>& movies) 
+{
+    unsigned int number;
+    while (true) 
+    {
+        cout << "Number: ";
+        cin >> number;
+        if (number > 0 && number <= movies.size())
+        {
+            return number;
+        }
+    else {
+        cout << "Invalid movie number. Try again.\n";
+    }
+}
+}
