@@ -36,14 +36,30 @@ void view_movies(const vector<Movie>& movies);
 int main(int argc, char* argv[])
 {
     cout << "The Movie List program\n" << endl;
-    display_menu();
     vector<Movie> movies = read_movies_from_file();
     char command = 'v';
     while(command != 'x')
     {
-        view_movies(movies);
-
-        command = 'x';
+        display_menu();
+        cout << "Command: ";
+        cin >> command;
+        switch(command)
+        {
+            case 'v':
+                view_movies(movies);
+                break;
+            case 'a':
+                // add_movie(movies);
+                break;
+            case 'd':
+                // delete_Movie(movies);
+                break;
+            case 'x':
+                cout << "Bye!" << endl << endl;
+                break;
+            default:
+                cout << "Not a valid command. Please try again." << endl;
+        } // end of switch(command)
     } // wnd of while command
 
     return 0;
@@ -72,19 +88,26 @@ void view_movies(const vector<Movie>& movies)
 vector<Movie> read_movies_from_file()
 {
     vector<Movie> movies;
-    // Read fie
+    // Read file
     ifstream input_file(movie_file);
+    // Read the Data from the file as Strings
     if(input_file) // if file opened successfully
     {
         string line;
         while(getline(input_file, line))
         {
+            // Use for breaking words
             stringstream ss(line);  // read the line and cast it as string
             // Now ready to parse the line
-            string title;
+            string title, temp;
             int year, stars;
-            getline(ss, title, ','); // read title until you get a \t
-            ss >> year >> stars;        // get year and stars
+            getline(ss, title, ','); // read title until you get a ','
+
+            getline(ss, temp, ','); // read title until you get a ','
+            year = stoi(temp); // convert string to integer
+            
+            getline(ss, temp, ','); // read title until you get a ','
+            stars = stoi(temp);
 //            cout << title << "year= " << year << "stars= " << stars << " extra" << endl; // TODO debug
             //Creat and add movie object to vector
             movies.push_back(Movie(title, year, stars));
