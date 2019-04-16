@@ -57,31 +57,131 @@ void List::display()
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  insert_start
+ *  Description:  Insert a node at the beginning of
+ *  the list. Remapped your head pointer
+ * =====================================================================================
+ */
 void List::insert_start(int value)
 {
+    // Create the new node
+    node *temp = new node;
+    temp->data = value;
+    temp->next = head;
+    // Set the head pointer
+    head = temp;
     return;
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  insert_position
+ *  Description:  Insert at a given index position
+ *  Thenl, reconnect the list
+ * =====================================================================================
+ */
 void List::insert_position(int pos, int value)
 {
+    node *prev = new node;
+    node *temp = new node;
+    node *cur = new node;
+
+    cur = head; // point to first member
+    for(int i = 1; i < pos; i++)
+    {
+        prev = cur;
+        cur = cur->next;
+    }
+    // Connect prev to curr to the rest of the list
+    temp->data = value;
+    prev->next = temp;
+    temp->next = cur;
     return;
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  delete_first
+ *  Description:  Delete first member of the list
+ *  Remapped the head
+ * =====================================================================================
+ */
 void List::delete_first()
 {
+    node *temp = new node;
+    temp = head; // save old head
+    head = head->next;
+    
+    delete temp; // free this memory
     return;
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  delete_last
+ *  Description:  Delete last member of the list
+ *  Set the nex last member to NULL
+ * =====================================================================================
+ */
 void List::delete_last()
 {
+    node *current = new node;
+    node *prev = new node;
+    current = head; // point at first
+    // loop until the end
+    while(current->next != NULL) 
+    {
+        prev = current;
+        current = current->next;
+    }
+    // set last member
+    tail = prev;
+    prev->next = NULL; // last member
+
+    delete current;
     return;
 }
 
 
+/* 
+ * ===  FUNCTION  ======================================================================
+ *         Name:  delete_position
+ *  Description:  Delete by a given position in the list.
+ * =====================================================================================
+ */
 void List::delete_position(int pos)
 {
+    node *prev = new node;
+    node *current = new node;
+    current = head; // points at first
+    int list_size = 0;
+    // Make sure you are within
+    // boundaries of the list by number of
+    // elements
+    while(current->next != NULL) 
+    {
+        list_size++;
+        current = current->next;
+    }
+    if(pos > list_size)
+    {
+        cout << "Position out of bounds " << endl;
+        return;
+    }
+    // Loop over nodes
+    for(int i = 1; i < pos; i++)
+    {
+        prev = current;
+        current = current->next;
+    }
+    // Set new addresses
+    prev->next = current->next;
+
+    delete current;
     return;
 }

@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 {
     List obj;
     obj.createnode(25);
-    obj.createnode(50);
+    obj.createnode(99);
     obj.createnode(90);
     obj.createnode(40);
     cout<<"\n--------------------------------------------------\n";
